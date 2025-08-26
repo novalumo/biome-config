@@ -1,7 +1,7 @@
 # @novalumo/biome-config
 
-To install dependencies:
+## Installation
 
 ```bash
-bun install
+bun add @novalumo/biome-config --dev
 ```
