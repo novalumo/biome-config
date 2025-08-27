@@ -1,20 +1,25 @@
 {
   "name": "@novalumo/biome-config",
+  "license": "UNLICENSED",
   "repository": {
     "type": "git",
-    "url": "https://github.com/novalumo/biome-config.git"
+    "url": "git+https://github.com/novalumo/biome-config.git"
   },
+  "author": "Novalumo Japan G.K.",
   "version": "1.0.0",
   "main": "biome.jsonc",
   "files": [
     "biome.jsonc"
   ],
+  "keywords": [
+    "biome",
+    "config",
+    "formatter",
+    "linter"
+  ],
   "scripts": {},
   "devDependencies": {
     "@biomejs/biome": "^2.2.2",
     "@types/bun": "latest"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
   }
 }
