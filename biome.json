@@ -23,6 +23,7 @@
     "ignoreUnknown": false,
     "includes": [
       "**",
+      "!**/.claude/",
       "!**/.husky/",
       "!**/.idea/",
       "!**/.mastra/",
