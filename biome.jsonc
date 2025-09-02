@@ -1,0 +1,116 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.2.2/schema.json",
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on",
+        "useSortedAttributes": "on"
+      }
+    }
+  },
+  "css": {
+    "assist": {
+      "enabled": true
+    },
+    "formatter": {
+      "enabled": true
+    },
+    "linter": {
+      "enabled": true
+    }
+  },
+  "files": {
+    "ignoreUnknown": false,
+    "includes": [
+      "**",
+      "!**/.husky/",
+      "!**/.idea/",
+      "!**/.mastra/",
+      "!**/.next/",
+      "!**/.open-next/",
+      "!**/.sst/",
+      "!**/.vercel/",
+      "!**/.wrangler/",
+      "!**/node_modules/",
+      "!**/out/",
+      "!**/playwright-report/",
+      "!**/public/",
+      "!**/dist/",
+      "!**/build/",
+      "!**/test-results/",
+      "!**/storybook-static/",
+      "!**/cloudflare-env.d.ts",
+      "!**/sst-env.d.ts"
+    ]
+  },
+  "formatter": {
+    "attributePosition": "auto",
+    "enabled": true,
+    "formatWithErrors": false,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80
+  },
+  "html": {
+    "formatter": {
+      "enabled": true
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "arrowParentheses": "always",
+      "attributePosition": "auto",
+      "bracketSameLine": false,
+      "bracketSpacing": true,
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "quoteStyle": "single",
+      "semicolons": "always",
+      "trailingCommas": "all"
+    }
+  },
+  "json": {
+    "assist": {
+      "enabled": true
+    },
+    "formatter": {
+      "enabled": true
+    },
+    "linter": {
+      "enabled": true
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "a11y": {
+        "noRedundantAlt": "warn",
+        "useKeyWithClickEvents": "warn"
+      },
+      "correctness": {
+        "noUnusedImports": "warn",
+        "useUniqueElementIds": "warn"
+      },
+      "performance": {
+        "noImgElement": "off"
+      },
+      "recommended": true,
+      "security": {
+        "noDangerouslySetInnerHtml": "warn"
+      },
+      "style": {
+        "noUselessElse": "warn"
+      },
+      "suspicious": {
+        "noArrayIndexKey": "warn",
+        "noExplicitAny": "warn"
+      }
+    }
+  },
+  "vcs": {
+    "clientKind": "git",
+    "enabled": false,
+    "useIgnoreFile": false
+  }
+}
