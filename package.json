@@ -6,11 +6,11 @@
     "url": "git+https://github.com/novalumo/biome-config.git"
   },
   "author": "Novalumo Japan G.K.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "biome.json",
   "type": "module",
   "exports": {
-    "./biome": "./biome.json"
+    ".": "./biome.json"
   },
   "keywords": [
     "biome",
