@@ -86,6 +86,7 @@
     "enabled": true,
     "rules": {
       "a11y": {
+        "useAltText": "info",
         "noRedundantAlt": "warn",
         "useKeyWithClickEvents": "warn"
       },
