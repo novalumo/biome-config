@@ -29,6 +29,7 @@
       "!**/.idea/",
       "!**/.mastra/",
       "!**/.next/",
+      "!**/.nuxt/",
       "!**/.open-next/",
       "!**/.sst/",
       "!**/.vercel/",
