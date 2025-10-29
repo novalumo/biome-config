@@ -21,13 +21,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 22
-          registry-url: https://registry.npmjs.org
-
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: stable
+          registry-url: https://registry.npmjs.org
 
       - name: Install Dependencies
         run: bun install
