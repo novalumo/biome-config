@@ -18,9 +18,14 @@
     "formatter",
     "linter"
   ],
-  "scripts": {},
+  "scripts": {
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "changeset publish"
+  },
   "devDependencies": {
     "@biomejs/biome": "^2.2.4",
+    "@changesets/cli": "^2.29.7",
     "@types/bun": "^1.2.21"
   },
   "publishConfig": {

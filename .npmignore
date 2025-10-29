@@ -1,0 +1,8 @@
+# Development files
+.changeset/
+.github/
+.gitignore
+CLAUDE.md
+
+# Bun lockfile
+bun.lock
