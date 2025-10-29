@@ -1,5 +1,11 @@
 # @novalumo/biome-config
 
+## 0.0.6
+
+### Patch Changes
+
+- e773548: Fix CI
+
 ## 0.0.5
 
 ### Patch Changes
