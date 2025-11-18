@@ -16,8 +16,22 @@ Use `bun` as the package manager throughout the project (not npm).
 - Install dependencies: `bun install`
 - Lint and format with Biome: `bunx biome check --write .`
 
-### Publishing
-- Publish to npm: `npm publish` (uses npm for publishing as configured in package.json)
+### Release Process
+
+This project uses [changesets](https://github.com/changesets/changesets) for automated releases via GitHub Actions.
+
+**Standard workflow:**
+1. Create a changeset: `bun run changeset`
+2. Commit the changeset file (`.changeset/*.md`) and create a PR
+3. Merge the PR to main
+4. GitHub Actions automatically creates a "Version Packages" PR
+5. Merge the Version Packages PR to trigger automatic npm publishing
+
+**Available commands:**
+- Create changeset: `bun run changeset`
+- Update versions: `bun run version` (usually done automatically by GitHub Actions)
+- Publish: `bun run release` (usually done automatically by GitHub Actions)
+- Manual publish: `npm publish` (not recommended; only use if automated process fails)
 
 ## Configuration Details
 
