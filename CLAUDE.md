@@ -25,7 +25,7 @@ This project uses [changesets](https://github.com/changesets/changesets) for aut
 2. Commit the changeset file (`.changeset/*.md`) and create a PR
 3. Merge the PR to main
 4. GitHub Actions automatically creates a "Version Packages" PR
-5. Merge the Version Packages PR to trigger automatic npm publishing
+5. Merge the Version Packages PR to trigger automatic npm publishing, Git tag creation (e.g., `v0.0.7`), and GitHub Release creation
 
 **Available commands:**
 - Create changeset: `bun run changeset`

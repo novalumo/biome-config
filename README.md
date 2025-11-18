@@ -37,7 +37,10 @@ bun add @novalumo/biome-config --dev
 
 4. **Version Packages PR をマージして公開**
 
-   Version Packages PR をマージすると、GitHub Actions が自動的に npm に公開します。
+   Version Packages PR をマージすると、GitHub Actions が自動的に以下を実行します:
+   - npm へのパッケージ公開
+   - Git タグの作成 (例: `v0.0.7`)
+   - GitHub Release の作成 (CHANGELOG 付き)
 
 #### 手動公開 (非推奨)
 
