@@ -68,9 +68,10 @@ jobs:
 
       - name: Publish to npm with OIDC
         if: steps.check.outputs.published == 'false'
-        run: npm publish --provenance --access public
+        run: npm publish --provenance --access public --loglevel verbose 2>&1 | head -100
         env:
           NPM_CONFIG_PROVENANCE: true
+          DEBUG: "*"
 
       - name: Create GitHub Release
         if: steps.check.outputs.published == 'false'
