@@ -8,29 +8,29 @@ This is a shared Biome configuration package (`@novalumo/biome-config`) distribu
 
 ## Package Manager
 
-Use `bun` as the package manager throughout the project (not npm).
+Use `pnpm` as the package manager throughout the project (not npm).
 
 ## Common Commands
 
 ### Development
-- Install dependencies: `bun install`
-- Lint and format with Biome: `bunx biome check --write .`
+- Install dependencies: `pnpm install`
+- Lint and format with Biome: `pnpm exec biome check --write .`
 
 ### Release Process
 
 This project uses [changesets](https://github.com/changesets/changesets) for automated releases via GitHub Actions.
 
 **Standard workflow:**
-1. Create a changeset: `bun run changeset`
+1. Create a changeset: `pnpm run changeset`
 2. Commit the changeset file (`.changeset/*.md`) and create a PR
 3. Merge the PR to main
 4. GitHub Actions automatically creates a "Version Packages" PR
 5. Merge the Version Packages PR to trigger automatic npm publishing, Git tag creation (e.g., `v0.0.7`), and GitHub Release creation
 
 **Available commands:**
-- Create changeset: `bun run changeset`
-- Update versions: `bun run version` (usually done automatically by GitHub Actions)
-- Publish: `bun run release` (usually done automatically by GitHub Actions)
+- Create changeset: `pnpm run changeset`
+- Update versions: `pnpm run version` (usually done automatically by GitHub Actions)
+- Publish: `pnpm run release` (usually done automatically by GitHub Actions)
 - Manual publish: `npm publish` (not recommended; only use if automated process fails)
 
 ## Configuration Details
