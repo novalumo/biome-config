@@ -6,7 +6,7 @@
     "url": "git+https://github.com/novalumo/biome-config.git"
   },
   "author": "Novalumo Japan G.K.",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "biome.json",
   "type": "module",
   "exports": {
@@ -24,8 +24,8 @@
     "release": "changeset publish"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.3.2",
-    "@changesets/cli": "^2.29.7"
+    "@biomejs/biome": "^2.3.10",
+    "@changesets/cli": "^2.29.8"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
