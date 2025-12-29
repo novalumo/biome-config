@@ -33,6 +33,9 @@ jobs:
           node-version: 22
           cache: pnpm
 
+      - name: Update npm to latest
+        run: npm install -g npm@latest && npm --version
+
       - name: Install Dependencies
         run: pnpm install
 
@@ -56,22 +59,9 @@ jobs:
           fi
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
-      - name: Debug OIDC environment
-        if: steps.check.outputs.published == 'false'
-        run: |
-          echo "npm version: $(npm --version)"
-          echo "ACTIONS_ID_TOKEN_REQUEST_URL: ${ACTIONS_ID_TOKEN_REQUEST_URL:-not set}"
-          echo "ACTIONS_ID_TOKEN_REQUEST_TOKEN length: ${#ACTIONS_ID_TOKEN_REQUEST_TOKEN}"
-          cat ~/.npmrc 2>/dev/null || echo "No .npmrc"
-          env | grep -i oidc || echo "No OIDC env vars"
-          env | grep -i actions || echo "No ACTIONS env vars"
-
       - name: Publish to npm with OIDC
         if: steps.check.outputs.published == 'false'
-        run: npm publish --provenance --access public --loglevel verbose 2>&1 | head -100
-        env:
-          NPM_CONFIG_PROVENANCE: true
-          DEBUG: "*"
+        run: npm publish --access public
 
       - name: Create GitHub Release
         if: steps.check.outputs.published == 'false'
