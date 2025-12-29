@@ -32,7 +32,6 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-          registry-url: https://registry.npmjs.org
 
       - name: Install Dependencies
         run: pnpm install
@@ -41,9 +40,9 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: pnpm run release
+          publish: npm publish --provenance --access public
           version: pnpm run version
           createGithubReleases: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_CONFIG_PROVENANCE: true
+          NPM_CONFIG_REGISTRY: https://registry.npmjs.org
