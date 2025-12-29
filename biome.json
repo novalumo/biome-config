@@ -6,7 +6,31 @@
     "useIgnoreFile": true
   },
   "files": {
-    "ignoreUnknown": false
+    "ignoreUnknown": false,
+    "includes": [
+      "**",
+      "!**/.astro/",
+      "!**/.claude/",
+      "!**/.husky/",
+      "!**/.idea/",
+      "!**/.mastra/",
+      "!**/.next/",
+      "!**/.nuxt/",
+      "!**/.open-next/",
+      "!**/.sst/",
+      "!**/.vercel/",
+      "!**/.wrangler/",
+      "!**/node_modules/",
+      "!**/out/",
+      "!**/playwright-report/",
+      "!**/public/",
+      "!**/dist/",
+      "!**/build/",
+      "!**/test-results/",
+      "!**/storybook-static/",
+      "!**/cloudflare-env.d.ts",
+      "!**/sst-env.d.ts"
+    ]
   },
   "formatter": {
     "attributePosition": "auto",
