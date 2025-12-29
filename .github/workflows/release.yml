@@ -56,9 +56,19 @@ jobs:
           fi
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
+      - name: Debug OIDC environment
+        if: steps.check.outputs.published == 'false'
+        run: |
+          echo "npm version: $(npm --version)"
+          echo "OIDC URL set: ${{ env.ACTIONS_ID_TOKEN_REQUEST_URL != '' }}"
+          echo "OIDC Token set: ${{ env.ACTIONS_ID_TOKEN_REQUEST_TOKEN != '' }}"
+          cat ~/.npmrc 2>/dev/null || echo "No .npmrc"
+
       - name: Publish to npm with OIDC
         if: steps.check.outputs.published == 'false'
         run: npm publish --provenance --access public
+        env:
+          NPM_CONFIG_PROVENANCE: true
 
       - name: Create GitHub Release
         if: steps.check.outputs.published == 'false'
