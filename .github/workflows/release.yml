@@ -36,16 +36,36 @@ jobs:
       - name: Install Dependencies
         run: pnpm install
 
-      - name: Configure npm for OIDC
-        run: |
-          echo "registry=https://registry.npmjs.org/" > ~/.npmrc
-
-      - name: Create Release Pull Request or Publish to npm
+      - name: Create Release Pull Request
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: npm publish --provenance --access public
           version: pnpm run version
-          createGithubReleases: true
+          createGithubReleases: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check if version is published
+        id: check
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          if npm view @novalumo/biome-config@$VERSION 2>/dev/null; then
+            echo "published=true" >> $GITHUB_OUTPUT
+          else
+            echo "published=false" >> $GITHUB_OUTPUT
+          fi
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Publish to npm with OIDC
+        if: steps.check.outputs.published == 'false'
+        run: npm publish --provenance --access public
+
+      - name: Create GitHub Release
+        if: steps.check.outputs.published == 'false'
+        run: |
+          gh release create "v${{ steps.check.outputs.version }}" \
+            --title "v${{ steps.check.outputs.version }}" \
+            --generate-notes \
+            || echo "Release already exists or failed"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
