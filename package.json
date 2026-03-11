@@ -12,6 +12,9 @@
   "exports": {
     ".": "./biome.jsonc"
   },
+  "files": [
+    "biome.jsonc"
+  ],
   "keywords": [
     "biome",
     "config",
