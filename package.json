@@ -30,6 +30,7 @@
     "@biomejs/biome": "^2.4.6",
     "@changesets/cli": "^2.30.0"
   },
+  "packageManager": "pnpm@10.29.2",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public",
