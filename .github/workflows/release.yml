@@ -39,30 +39,22 @@ jobs:
       - name: Check with Biome
         run: pnpm exec biome check .
 
-      - name: Create Release Pull Request
+      - name: Create Release Pull Request or Publish
         id: changesets
         uses: changesets/action@v1
         with:
           version: pnpm run version
+          publish: pnpm publish --access public --no-git-checks
           createGithubReleases: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Get version
-        if: steps.changesets.outputs.hasChangesets == 'false'
-        id: version
-        run: echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
-
-      - name: Publish to npm with OIDC
-        if: steps.changesets.outputs.hasChangesets == 'false'
-        run: pnpm publish --access public --no-git-checks
-
       - name: Create GitHub Release
-        if: steps.changesets.outputs.hasChangesets == 'false'
+        if: steps.changesets.outputs.published == 'true'
         run: |
-          gh release create "v${{ steps.version.outputs.version }}" \
-            --title "v${{ steps.version.outputs.version }}" \
-            --generate-notes \
-            || echo "Release already exists or failed"
+          VERSION=$(node -p "require('./package.json').version")
+          gh release create "v${VERSION}" \
+            --title "v${VERSION}" \
+            --generate-notes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
