@@ -1,0 +1,127 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.4.6/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignoreUnknown": false,
+    "includes": [
+      "**",
+      "!**/.astro/",
+      "!**/.claude/",
+      "!**/.husky/",
+      "!**/.idea/",
+      "!**/.mastra/",
+      "!**/.next/",
+      "!**/.nuxt/",
+      "!**/.open-next/",
+      "!**/.turbo/",
+      "!**/.sst/",
+      "!**/.vercel/",
+      "!**/.wrangler/",
+      "!**/node_modules/",
+      "!**/out/",
+      "!**/playwright-report/",
+      "!**/public/",
+      "!**/dist/",
+      "!**/build/",
+      "!**/test-results/",
+      "!**/storybook-static/",
+      "!**/cloudflare-env.d.ts",
+      "!**/sst-env.d.ts"
+    ]
+  },
+  "formatter": {
+    "attributePosition": "auto",
+    "enabled": true,
+    "formatWithErrors": false,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "a11y": {
+        "useAltText": "info",
+        "noRedundantAlt": "warn",
+        "useKeyWithClickEvents": "warn"
+      },
+      "correctness": {
+        "noUnusedImports": "warn",
+        "useUniqueElementIds": "warn"
+      },
+      "performance": {
+        "noImgElement": "off"
+      },
+      "recommended": true,
+      "security": {
+        "noDangerouslySetInnerHtml": "warn"
+      },
+      "style": {
+        "noUselessElse": "warn"
+      },
+      "suspicious": {
+        "noArrayIndexKey": "warn",
+        "noExplicitAny": "warn"
+      }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "arrowParentheses": "always",
+      "attributePosition": "auto",
+      "bracketSameLine": false,
+      "bracketSpacing": true,
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "quoteStyle": "single",
+      "semicolons": "always",
+      "trailingCommas": "all"
+    }
+  },
+  "css": {
+    "assist": {
+      "enabled": true
+    },
+    "formatter": {
+      "enabled": true
+    },
+    "linter": {
+      "enabled": true
+    },
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
+  "html": {
+    "formatter": {
+      "enabled": true
+    },
+    "linter": {
+      "enabled": true
+    }
+  },
+  "json": {
+    "assist": {
+      "enabled": true
+    },
+    "formatter": {
+      "enabled": true
+    },
+    "linter": {
+      "enabled": true
+    }
+  },
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on",
+        "useSortedAttributes": "on"
+      }
+    }
+  }
+}
