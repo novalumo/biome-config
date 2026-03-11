@@ -7,10 +7,10 @@
   },
   "author": "Novalumo Japan G.K.",
   "version": "0.0.6",
-  "main": "biome.json",
+  "main": "biome.jsonc",
   "type": "module",
   "exports": {
-    ".": "./biome.json"
+    ".": "./biome.jsonc"
   },
   "keywords": [
     "biome",

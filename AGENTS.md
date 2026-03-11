@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a shared Biome configuration package (`@novalumo/biome-config`) distributed via npm. The main export is `biome.json` which contains formatting, linting, and assist rules for JavaScript, TypeScript, CSS, HTML, and JSON files.
+This is a shared Biome configuration package (`@novalumo/biome-config`) distributed via npm. The main export is `biome.jsonc` which contains formatting, linting, and assist rules for JavaScript, TypeScript, CSS, HTML, and JSON files.
 
 ## Package Manager
 
@@ -13,6 +13,7 @@ Use `pnpm` as the package manager throughout the project (not npm).
 ## Common Commands
 
 ### Development
+
 - Install dependencies: `pnpm install`
 - Lint and format with Biome: `pnpm exec biome check --write .`
 
@@ -21,6 +22,7 @@ Use `pnpm` as the package manager throughout the project (not npm).
 This project uses [changesets](https://github.com/changesets/changesets) for automated releases via GitHub Actions.
 
 **Standard workflow:**
+
 1. Create a changeset: `pnpm run changeset`
 2. Commit the changeset file (`.changeset/*.md`) and create a PR
 3. Merge the PR to main
@@ -28,6 +30,7 @@ This project uses [changesets](https://github.com/changesets/changesets) for aut
 5. Merge the Version Packages PR to trigger automatic npm publishing, Git tag creation (e.g., `v0.0.7`), and GitHub Release creation
 
 **Available commands:**
+
 - Create changeset: `pnpm run changeset`
 - Update versions: `pnpm run version` (usually done automatically by GitHub Actions)
 - Publish: `pnpm run release` (usually done automatically by GitHub Actions)
@@ -35,7 +38,8 @@ This project uses [changesets](https://github.com/changesets/changesets) for aut
 
 ## Configuration Details
 
-The main configuration file is `biome.json` which:
+The main configuration file is `biome.jsonc` which:
+
 - Uses 2-space indentation and line width of 80
 - Enables formatting, linting, and assist features for JS/TS, CSS, HTML, and JSON
 - Excludes common build/cache directories (.next, .vercel, dist, node_modules, etc.)
