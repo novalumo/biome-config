@@ -39,22 +39,36 @@ jobs:
       - name: Check with Biome
         run: pnpm exec biome check .
 
-      - name: Create Release Pull Request or Publish
+      - name: Create Release Pull Request
         id: changesets
         uses: changesets/action@v1
         with:
           version: pnpm run version
-          publish: pnpm publish --access public --no-git-checks
           createGithubReleases: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create GitHub Release
-        if: steps.changesets.outputs.published == 'true'
+      - name: Check if version is already published
+        if: steps.changesets.outputs.hasChangesets == 'false'
+        id: check
         run: |
           VERSION=$(node -p "require('./package.json').version")
-          gh release create "v${VERSION}" \
-            --title "v${VERSION}" \
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          if npm view "@novalumo/biome-config@$VERSION" version 2>/dev/null; then
+            echo "already_published=true" >> $GITHUB_OUTPUT
+          else
+            echo "already_published=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Publish to npm
+        if: steps.changesets.outputs.hasChangesets == 'false' && steps.check.outputs.already_published == 'false'
+        run: pnpm publish --access public --no-git-checks
+
+      - name: Create GitHub Release
+        if: steps.changesets.outputs.hasChangesets == 'false' && steps.check.outputs.already_published == 'false'
+        run: |
+          gh release create "v${{ steps.check.outputs.version }}" \
+            --title "v${{ steps.check.outputs.version }}" \
             --generate-notes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
